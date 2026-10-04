@@ -104,8 +104,9 @@
   .section-head{text-align:center;margin-bottom:20px;}
   .section-head .zh{display:block;color:var(--red);font-size:1rem;margin-bottom:4px;}
   .section-head .en{font-family:'Cormorant Garamond', serif;font-size:2rem;font-style:italic;color:var(--ink);}
-  .event-caption{text-align:center;color:var(--muted);font-size:0.9rem;margin-bottom:48px;}
+  .event-caption{text-align:center;color:var(--muted);font-size:1rem;margin-bottom:48px;}
   .event-caption .zh{display:block;font-size:0.88rem;margin-top:2px;}
+  .event-caption > .zh{font-size:0.95rem;}
 
   /* ---------- SCHEDULE ---------- */
   .schedule{padding:90px 28px;}
@@ -121,7 +122,9 @@
   .t-venue{color:var(--muted);font-size:0.9rem;margin-top:3px;}
   .t-note{font-style:italic;color:var(--muted);font-size:0.85rem;margin-top:6px;max-width:38ch;}
   .t-note + .t-note{margin-top:4px;}
-  .t-note .zh{display:block;margin-top:2px;font-style:normal;}
+  .t-note.zh{font-style:normal;}
+  .t-note.zh-start{margin-top:18px;}
+  .t-note .zh{display:block;margin-top:18px;font-style:normal;}
 
   .dress-note{
     margin-top:48px;text-align:center;padding:22px;border:1px solid var(--line);
@@ -129,10 +132,10 @@
   }
   .dress-note .label{font-family:'Cormorant Garamond', serif;font-style:italic;font-size:1.1rem;color:var(--red);display:block;margin-bottom:6px;}
   .dress-note p{margin:0;font-size:0.92rem;color:var(--muted);}
-  .dress-note .zh{display:block;margin-top:6px;font-size:0.88rem;}
+  .dress-note .zh{display:block;margin-top:10px;font-size:0.9rem;line-height:1.9;}
 
   /* ---------- VENUE / GETTING THERE ---------- */
-  .venue-section{padding:90px 28px;background:var(--paper-deep);}
+  .venue-section{padding:90px 28px;}
   .venue-card{
     max-width:460px;margin:0 auto 20px;
     border:1px solid var(--line);padding:26px;
@@ -165,12 +168,15 @@
   /* ---------- RSVP ---------- */
   .rsvp{padding:90px 28px 120px;}
   .rsvp-cta{max-width:440px;margin:0 auto;text-align:center;}
-  .rsvp-copy{font-size:1.05rem;color:#3B342C;margin:0 0 22px;}
-  .rsvp-copy .zh{display:block;color:var(--muted);font-size:0.95rem;margin-top:8px;}
-  .rsvp-deadline{font-size:0.88rem;color:var(--muted);margin:0 0 30px;}
+  .rsvp-copy{font-size:0.9rem;color:#3B342C;margin:0 0 6px;}
+  @media (min-width:520px){.rsvp-copy{white-space:nowrap;margin-left:-40px;margin-right:-40px;}}
+    .rsvp-copy strong{font-weight:500;color:var(--ink);}
+  .rsvp-deadline{font-size:0.88rem;color:var(--muted);margin:0 0 6px;}
+  .rsvp-cta p.zh{color:var(--muted);}
+  .rsvp-deadline.rsvp-en-last{margin-bottom:22px;}
+  .rsvp-deadline.rsvp-zh-last{margin-bottom:30px;}
   .rsvp-deadline strong{color:var(--ink);font-weight:500;}
-  .rsvp-deadline .zh{display:block;margin-top:4px;}
-  .rsvp-btn{
+    .rsvp-btn{
     display:inline-block;padding:15px 44px;background:var(--red);color:var(--paper);
     text-decoration:none;font-family:'Cormorant Garamond', serif;font-size:1.25rem;
     letter-spacing:0.03em;transition:background .15s;
@@ -230,7 +236,6 @@
   <div class="event-sub">
     <strong>Saturday, July 24, 2027</strong> · ChiaoHsi, Yilan, Taiwan
     <span class="zh">2027年7月24日（星期六）・台灣宜蘭礁溪</span>
-    <span class="event-note">Welcome Dinner the night before, Friday July 23<span class="zh"> ・ 接風casual晚餐：7月23日（星期五）</span></span>
   </div>
 
   <div class="scroll-cue"><span></span>scroll</div>
@@ -269,8 +274,10 @@
         <div class="t-time">Sat, Jul 24 · 4:30 PM</div>
         <div class="t-label-row"><span class="t-label">Cocktail Party</span><span class="t-zh zh">雞尾酒會</span></div>
         <div class="t-venue">Royal Hotel ChiaoHsi 礁溪老爺酒店</div>
-        <div class="t-note">A Taiwanese tradition — will Harry and his crew pass the challenges?<span class="zh">哈利闖天關 - 新娘本人什麽傳統儀式都不想跑 但闖關這個必需！！！(請點播花木蘭 - 男子漢 謝謝）</span></div>
-        <div class="t-note">Drinks and light snacks will be served throughout the cocktail hour — come hungry!<span class="zh">雞尾酒會全程供應飲品與輕食小點——記得空著肚子來！</span></div>
+        <div class="t-note">A Taiwanese tradition — will Harry and his crew pass the challenges?</div>
+        <div class="t-note">Drinks and light snacks will be served throughout the cocktail hour — come hungry!</div>
+        <div class="t-note zh zh-start">哈利闖天關 - 新娘本人什麽傳統儀式都不想跑 但闖關這個必需！！！(請點播花木蘭 - 男子漢 謝謝）</div>
+        <div class="t-note zh">雞尾酒會全程供應飲品與輕食小點——記得空著肚子來！</div>
       </div>
       <div class="t-item">
         <div class="t-time">Sat, Jul 24 · 6:30 PM</div>
@@ -288,8 +295,43 @@
     <div class="dress-note">
       <span class="label">A note on dress</span>
       <p>No white or off-white please — the rest is up to you!</p>
-      <span class="zh">請避免穿著白色或米白色服裝 請避免穿著白色或米白色服裝 請避免穿著白色或米白色服裝 -- 都說三次了你還穿來我本人會潑漆在你身上😂 其他大家就自由發揮隨喜 感恩惜福</span>
+      <span class="zh">請避免穿著白色或米白色服裝<br>請避免穿著白色或米白色服裝<br>請避免穿著白色或米白色服裝<br>都說三次了你還穿來我本人會潑漆在你身上😂<br>其他大家就自由發揮隨喜 感恩惜福</span>
     </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section class="rsvp" id="rsvp">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="zh">敬請回覆</span>
+      <span class="en">RSVP</span>
+    </div>
+    <div class="rsvp-cta">
+      <p class="rsvp-copy">Please let us know if you can join us by <strong>November 29, 2026</strong>.</p>
+      <p class="rsvp-deadline rsvp-en-last">It's Harry's birthday wish that everyone RSVP by then!<br><span style="white-space:nowrap;">May: DON'T MAKE ME CALL YOU.</span></p>
+      <p class="rsvp-copy zh">請於2026年11月29日前讓我們知道您是否能出席。</p>
+      <p class="rsvp-deadline zh rsvp-zh-last">請大家完成哈利的生日願望準時回覆，不要逼我打電話騷擾你！</p>
+      <a class="rsvp-btn" href="https://tally.so/r/Y5NL76" target="_blank" rel="noopener">RSVP Now<span class="zh">立即回覆</span></a>
+      <p class="rsvp-note">You'll be asked your party size, meal preference, and whether you'll join the Welcome Dinner and After Party too.<span class="zh">表單將詢問您的出席人數、餐點偏好，以及是否參加接風casual晚餐與續攤。</span></p>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section class="hongbao">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="zh">紅包・心意</span>
+      <span class="en">With Our Gratitude</span>
+    </div>
+    <div class="hongbao-intro">
+      <p>Your presence is the only present we request! But for those who have asked — in keeping with Taiwanese tradition we do accept cash gifts (hong bao). If you'd like our bank details please get in touch and we'll share them. Or, if you'd like to spread the joy a little further, we'd be touched if you made a donation to a charity of your choice, or to one of the two causes close to our hearts below.</p>
+      <p class="zh">您的蒞臨，就是我們唯一的心願！依照台灣的習俗，我們也歡迎紅包。如需我們的匯款資訊，請與我們聯絡。或者，您也可以把這份喜悅傳遞出去，捐款給您心中所選擇的公益團體，或是下方我們特別關心的兩個機構。</p>
+    </div>
+    <div class="gift-grid" id="gift-grid"></div>
   </div>
 </section>
 
@@ -331,40 +373,6 @@
       </ul>
       <p class="venue-note">Welcome Dinner venue is still being finalized — we'll share the address and directions here once it's confirmed.<span class="zh" style="display:block;margin-top:4px;">接風casual晚餐地點尚未確定，確認後將更新於此。</span></p>
     </div>
-  </div>
-</section>
-
-<div class="rule"></div>
-
-<section class="rsvp" id="rsvp">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="zh">敬請回覆</span>
-      <span class="en">RSVP</span>
-    </div>
-    <div class="rsvp-cta">
-      <p class="rsvp-copy">Please let us know if you can join us.<span class="zh">請讓我們知道您是否能出席。</span></p>
-      <p class="rsvp-deadline">Please reply by <strong>November 29, 2026</strong><span class="zh">請於2026年11月29日前回覆</span></p>
-      <p class="rsvp-deadline">It's Harry's birthday wish that everyone RSVP by then! May: DON'T MAKE ME CALL YOU.<span class="zh">這是哈利的生日願望，請大家務必準時回覆——May：別逼我打電話給你。</span></p>
-      <a class="rsvp-btn" href="https://tally.so/r/Y5NL76" target="_blank" rel="noopener">RSVP Now<span class="zh">立即回覆</span></a>
-      <p class="rsvp-note">You'll be asked your party size, meal preference, and whether you'll join the Welcome Dinner and After Party too.<span class="zh">表單將詢問您的出席人數、餐點偏好，以及是否參加接風casual晚餐與續攤。</span></p>
-    </div>
-  </div>
-</section>
-
-<div class="rule"></div>
-
-<section class="hongbao">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="zh">紅包・心意</span>
-      <span class="en">With Our Gratitude</span>
-    </div>
-    <div class="hongbao-intro">
-      <p>Your presence is the only present we request! But for those who have asked — in keeping with Taiwanese tradition we do accept cash gifts (hong bao). If you'd like our bank details please get in touch and we'll share them. Or, if you'd like to spread the joy a little further, we'd be touched if you made a donation to a charity of your choice, or to one of the two causes close to our hearts below.</p>
-      <p class="zh">您的蒞臨，就是我們唯一的心願！依照台灣的習俗，我們也歡迎紅包。如需我們的匯款資訊，請與我們聯絡。或者，您也可以把這份喜悅傳遞出去，捐款給您心中所選擇的公益團體，或是下方我們特別關心的兩個機構。</p>
-    </div>
-    <div class="gift-grid" id="gift-grid"></div>
   </div>
 </section>
 
