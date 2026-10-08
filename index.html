@@ -6,9 +6,10 @@
 <meta name="robots" content="noindex, nofollow">
 <title>An Invitation — May &amp; Harry</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+TC:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
+    --font:'Cormorant Garamond','Noto Sans TC',sans-serif;
     --ink:#241E1A;
     --paper:#F6EEE0;
     --paper-deep:#EFE3CC;
@@ -21,17 +22,21 @@
   }
 
   *{box-sizing:border-box;}
+  html{font-size:106.25%;}
+  body{font-weight:500;font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1;}
+  button,input,select,textarea{font-family:inherit;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
     background:var(--paper);
     color:var(--ink);
-    font-family:'Inter', sans-serif;
+    font-family:var(--font);
     line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
-  .zh{font-family:'Noto Serif TC', serif;}
-  .display{font-family:'Cormorant Garamond', serif;}
+  .nb{white-space:nowrap;}
+  .zh{font-family:var(--font);font-size:0.92em;font-weight:400;}
+  .display{font-family:var(--font);}
   .wrap{max-width:640px;margin:0 auto;padding:0 28px;}
 
   body::before{
@@ -67,7 +72,7 @@
     60%{opacity:1;}
     100%{opacity:1;transform:scale(1) translateY(0);}
   }
-  .eyebrow-zh{font-family:'Noto Serif TC', serif;font-size:0.95rem;letter-spacing:0.15em;color:var(--red);margin:0 0 2px;}
+  .eyebrow-zh{font-family:var(--font);font-size:0.86rem;letter-spacing:0.15em;color:var(--red);margin:0 0 2px;}
   .eyebrow-en{font-size:0.78rem;letter-spacing:0.1em;color:var(--muted);margin:0 0 22px;}
   .names{
     display:flex;flex-direction:column;align-items:center;gap:12px;margin:0 0 6px;
@@ -77,18 +82,23 @@
     gap:14px;font-weight:500;
     font-size:clamp(1.9rem, 6.2vw, 3rem);line-height:1.2;color:var(--ink);
   }
-  .person-line .name-en{font-family:'Cormorant Garamond', serif;font-size:1em;}
-  .person-line .name-zh{font-family:'Noto Serif TC', serif;font-size:0.55em;color:var(--muted);font-weight:500;}
+  .person-line .name-en{font-family:var(--font);font-size:1em;}
+  .person-line .name-zh{font-family:var(--font);font-size:0.55em;color:var(--muted);font-weight:500;}
   .names.tw-primary .name-zh{font-size:1em;color:var(--ink);order:-1;}
   .names.tw-primary .name-en{font-size:0.5em;color:var(--muted);}
+  .names.tw-primary{flex-direction:column;flex-wrap:nowrap;align-items:center;justify-content:center;gap:10px;font-size:clamp(1.7rem, 6.2vw, 2.8rem);line-height:1.2;font-weight:500;}
+  .names .pair{display:flex;flex-direction:column;align-items:center;gap:2px;}
+  .names .pair .main{font-family:var(--font);font-size:1em;color:var(--ink);white-space:nowrap;}
+  .names .pair .sub{font-family:var(--font);font-size:0.45em;color:var(--muted);}
   .names .amp{color:var(--gold);font-style:italic;font-size:1.3rem;}
+  .names.tw-primary .amp{font-size:0.7em;margin:0;}
   .tagline{font-size:0.95rem;color:var(--muted);max-width:38ch;margin:14px auto 34px;}
-  .tagline .zh{display:block;font-size:0.9rem;margin-top:4px;color:var(--muted);}
+  .tagline .zh{display:block;font-size:0.82rem;margin-top:4px;color:var(--muted);}
 
   .event-sub{font-size:1rem;color:var(--ink);}
   .event-sub strong{font-weight:500;}
-  .event-sub .zh{color:var(--muted);font-size:0.9rem;display:block;margin-top:3px;}
-  .event-note{display:block;font-size:0.8rem;color:var(--muted);margin-top:10px;font-style:italic;}
+  .event-sub .zh{color:var(--muted);font-size:0.82rem;display:block;margin-top:3px;}
+  .event-note{display:block;font-size:0.8rem;color:var(--muted);margin-top:10px;}
   .event-note .zh{display:inline;font-size:0.85em;font-style:normal;margin-top:0;}
 
   .scroll-cue{margin-top:56px;font-size:0.8rem;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:8px;}
@@ -98,29 +108,27 @@
   .invite{padding:90px 28px;text-align:center;}
   .invite p{font-size:1.05rem;color:#3B342C;max-width:46ch;margin:0 auto;}
   .invite .en-copy{margin-bottom:16px;}
-  .invite .zh-copy{color:var(--muted);font-size:1rem;}
+  .invite .zh-copy{color:var(--muted);font-size:0.92rem;}
 
   /* ---------- SECTION HEAD (shared) ---------- */
   .section-head{text-align:center;margin-bottom:20px;}
-  .section-head .zh{display:block;color:var(--red);font-size:1rem;margin-bottom:4px;}
-  .section-head .en{font-family:'Cormorant Garamond', serif;font-size:2rem;font-style:italic;color:var(--ink);}
-  .event-caption{text-align:center;color:var(--muted);font-size:1rem;margin-bottom:48px;}
-  .event-caption .zh{display:block;font-size:0.88rem;margin-top:2px;}
-  .event-caption > .zh{font-size:0.95rem;}
+  .section-head .zh{display:block;color:var(--red);font-size:0.9rem;margin-bottom:4px;}
+  .section-head .en{font-family:var(--font);font-size:2rem;font-style:italic;color:var(--ink);}
 
   /* ---------- SCHEDULE ---------- */
   .schedule{padding:90px 28px;}
+  .schedule .section-head{margin-bottom:48px;}
   .timeline{position:relative;padding-left:32px;max-width:460px;margin:0 auto;}
   .timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line);}
   .t-item{position:relative;padding-bottom:34px;}
   .t-item:last-child{padding-bottom:0;}
   .t-item::before{content:"";position:absolute;left:-32px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--gold);}
-  .t-time{font-family:'Cormorant Garamond', serif;font-size:1.2rem;color:var(--red);margin-bottom:2px;}
+  .t-time{font-family:var(--font);font-size:1.2rem;color:var(--red);margin-bottom:2px;}
   .t-label-row{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
   .t-label{font-weight:500;}
-  .t-zh{color:var(--muted);font-size:0.88rem;}
+  .t-zh{color:var(--muted);font-size:0.8rem;}
   .t-venue{color:var(--muted);font-size:0.9rem;margin-top:3px;}
-  .t-note{font-style:italic;color:var(--muted);font-size:0.85rem;margin-top:6px;max-width:38ch;}
+  .t-note{color:var(--muted);font-size:0.85rem;margin-top:6px;max-width:38ch;}
   .t-note + .t-note{margin-top:4px;}
   .t-note.zh{font-style:normal;}
   .t-note.zh-start{margin-top:18px;}
@@ -130,9 +138,9 @@
     margin-top:48px;text-align:center;padding:22px;border:1px solid var(--line);
     max-width:460px;margin-left:auto;margin-right:auto;
   }
-  .dress-note .label{font-family:'Cormorant Garamond', serif;font-style:italic;font-size:1.1rem;color:var(--red);display:block;margin-bottom:6px;}
+  .dress-note .label{font-family:var(--font);font-style:italic;font-size:1.1rem;color:var(--red);display:block;margin-bottom:6px;}
   .dress-note p{margin:0;font-size:0.92rem;color:var(--muted);}
-  .dress-note .zh{display:block;margin-top:10px;font-size:0.9rem;line-height:1.9;}
+  .dress-note .zh{display:block;margin-top:10px;font-size:0.82rem;line-height:1.9;}
 
   /* ---------- VENUE / GETTING THERE ---------- */
   .venue-section{padding:90px 28px;}
@@ -142,11 +150,11 @@
     background:var(--paper);
   }
   .venue-card h3{
-    font-family:'Cormorant Garamond', serif;font-size:1.4rem;font-weight:500;margin:0 0 2px;
+    font-family:var(--font);font-size:1.4rem;font-weight:500;margin:0 0 2px;
   }
-  .venue-card .venue-zh{color:var(--muted);font-size:0.92rem;margin-bottom:12px;display:block;}
+  .venue-card .venue-zh{color:var(--muted);font-size:0.84rem;margin-bottom:12px;display:block;}
   .venue-blurb{font-size:0.9rem;color:var(--muted);margin:0 0 14px;}
-  .venue-blurb .zh{display:block;margin-top:3px;font-size:0.88rem;}
+  .venue-blurb .zh{display:block;margin-top:3px;font-size:0.8rem;}
   .venue-card a.map-link{
     display:inline-block;font-size:0.85rem;color:var(--jade);text-decoration:none;
     border-bottom:1px solid var(--jade);margin-bottom:18px;
@@ -154,7 +162,7 @@
   .directions-label{
     font-size:0.8rem;letter-spacing:0.05em;color:var(--red);margin-bottom:10px;display:block;
   }
-  .directions-label .zh{color:var(--red);font-size:0.85rem;margin-left:4px;}
+  .directions-label .zh{color:var(--red);font-size:0.78rem;margin-left:4px;}
   .directions-list{margin:0;padding:0;list-style:none;}
   .directions-list li{
     font-size:0.9rem;color:var(--muted);padding:8px 0;border-top:1px solid var(--line);
@@ -162,7 +170,7 @@
   .directions-list li:first-child{border-top:none;}
   .directions-list li strong{color:var(--ink);font-weight:500;display:inline-block;min-width:88px;}
   .venue-note{
-    font-size:0.88rem;color:var(--muted);font-style:italic;margin-top:14px;
+    font-size:0.88rem;color:var(--muted);margin-top:14px;
   }
 
   /* ---------- RSVP ---------- */
@@ -170,8 +178,8 @@
   .rsvp-cta{max-width:440px;margin:0 auto;text-align:center;}
   .rsvp-cta p{text-wrap:balance;}
   .rsvp-copy{font-size:0.9rem;color:#3B342C;margin:0 0 6px;}
-  @media (min-width:520px){.rsvp-copy{white-space:nowrap;margin-left:-40px;margin-right:-40px;}}
-    .rsvp-copy strong{font-weight:500;color:var(--ink);}
+  @media (min-width:568px){.rsvp-copy{white-space:nowrap;margin-left:-40px;margin-right:-40px;}}
+    .rsvp-copy strong{font-weight:700;color:var(--ink);}
   .rsvp-deadline{font-size:0.88rem;color:var(--muted);margin:0 0 6px;}
   .rsvp-cta p.zh{color:var(--muted);}
   .rsvp-deadline.rsvp-en-last{margin-bottom:22px;}
@@ -179,27 +187,27 @@
   .rsvp-deadline strong{color:var(--ink);font-weight:500;}
     .rsvp-btn{
     display:inline-block;padding:15px 44px;background:var(--red);color:var(--paper);
-    text-decoration:none;font-family:'Cormorant Garamond', serif;font-size:1.25rem;
+    text-decoration:none;font-family:var(--font);font-size:1.25rem;
     letter-spacing:0.03em;transition:background .15s;
   }
   .rsvp-btn:hover{background:var(--red-deep);}
-  .rsvp-btn .zh{display:block;font-size:0.6em;margin-top:2px;font-family:'Noto Serif TC', serif;}
-  .rsvp-note{font-size:0.85rem;color:var(--muted);font-style:italic;margin-top:24px;max-width:38ch;margin-left:auto;margin-right:auto;}
+  .rsvp-btn .zh{display:block;font-size:0.6em;margin-top:2px;font-family:var(--font);}
+  .rsvp-note{font-size:0.85rem;color:var(--muted);margin-top:24px;max-width:38ch;margin-left:auto;margin-right:auto;}
   .rsvp-note .zh{display:block;margin-top:4px;}
 
   /* ---------- HONGBAO ---------- */
   .hongbao{padding:90px 28px;background:var(--paper-deep);}
   .hongbao-intro{text-align:center;max-width:44ch;margin:0 auto 48px;}
   .hongbao-intro p{margin:0 0 8px;color:#3B342C;}
-  .hongbao-intro .zh{color:var(--muted);font-size:0.95rem;}
+  .hongbao-intro .zh{color:var(--muted);font-size:0.86rem;}
   .gift-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:560px;margin:0 auto;}
   .gift-card{
     border:1px solid var(--line);background:var(--paper);padding:18px;
   }
   .gift-card h4{
-    font-family:'Cormorant Garamond', serif;font-size:1.15rem;font-weight:500;margin:0 0 2px;color:var(--jade);
+    font-family:var(--font);font-size:1.15rem;font-weight:500;margin:0 0 2px;color:var(--jade);
   }
-  .gift-card .gift-zh{color:var(--muted);font-size:0.8rem;display:block;margin-bottom:10px;}
+  .gift-card .gift-zh{color:var(--muted);font-size:0.74rem;display:block;margin-bottom:10px;}
   .gift-line{font-size:0.85rem;color:var(--muted);margin-bottom:3px;}
   .gift-line strong{color:var(--ink);font-weight:500;}
   .gift-note{margin-bottom:14px;}
@@ -216,6 +224,46 @@
     .seal{animation:none;opacity:1;transform:none;}
     html{scroll-behavior:auto;}
   }
+
+  /* ---------- Typography polish ---------- */
+  .tagline, .invite p, .t-note, .t-venue, .dress-note p, .dress-note .zh,
+  .hongbao-intro p, .gift-note, .venue-blurb, .venue-note, .directions-list li,
+  .rsvp-note, .rsvp-deadline{text-wrap:pretty;line-break:strict;}
+  .tagline, .dress-note p, .rsvp-note{text-wrap:balance;}
+  .zh, .t-zh{line-break:strict;word-break:normal;overflow-wrap:break-word;}
+  @media (max-width:568px){
+    .tagline, .invite p, .t-note, .hongbao-intro, .rsvp-note, .venue-note{max-width:none;}
+    .invite, .schedule, .rsvp, .hongbao, .venue-section{padding-left:24px;padding-right:24px;}
+    .invite p{font-size:1rem;}
+    .t-note{font-size:0.9rem;}
+    .t-time{line-height:1.3;}
+  }
+
+  /* Chinese sized to sit visually level with the English */
+  .t-note.zh{font-size:0.78rem;}
+  .t-note .zh{font-size:0.92em;}
+  .rsvp-copy.zh{font-size:0.82rem;}
+  .rsvp-deadline.zh{font-size:0.8rem;}
+  .gift-note .zh{font-size:0.92em;}
+
+  /* ---------- Language toggle (Getting There) ---------- */
+  .lang-toggle{display:flex;justify-content:center;margin:0 auto 22px;}
+  .lang-btn{
+    background:none;border:1px solid var(--gold);padding:8px 24px;font-family:var(--font);
+    font-size:0.95rem;letter-spacing:0.03em;color:var(--muted);cursor:pointer;
+    transition:background .15s, color .15s;
+  }
+  .lang-btn + .lang-btn{border-left:none;}
+  .lang-btn.active{background:var(--red);border-color:var(--red);color:var(--paper);}
+  .lang-btn:focus-visible{outline:2px solid var(--jade);outline-offset:2px;}
+  .lang-panel[data-lang="zh"] h3{font-weight:500;}
+  .lang-panel[data-lang="zh"] .venue-blurb,
+  .lang-panel[data-lang="zh"] .venue-note,
+  .lang-panel[data-lang="zh"] .directions-list li{font-weight:400;line-height:1.9;}
+  .lang-panel[data-lang="zh"] .venue-note{font-style:normal;}
+  .lang-panel[data-lang="zh"] .directions-list li strong{min-width:0;margin-right:6px;}
+  .lang-panel[data-lang="zh"] .directions-label{letter-spacing:0.1em;}
+  .lang-panel[data-lang="zh"] .directions-label{margin-bottom:6px;}
 </style>
 </head>
 <body>
@@ -223,14 +271,14 @@
 <section class="hero">
   <svg class="seal" viewBox="0 0 100 100" aria-hidden="true">
     <rect x="6" y="6" width="88" height="88" fill="none" stroke="#8F2A24" stroke-width="4"/>
-    <text x="50" y="66" text-anchor="middle" font-family="'Noto Serif TC', serif" font-size="52" fill="#8F2A24">囍</text>
+    <text x="50" y="66" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-size="52" fill="#8F2A24">囍</text>
   </svg>
   <p class="eyebrow-zh zh">誠摯邀請</p>
   <p class="eyebrow-en">YOU ARE CORDIALLY INVITED</p>
   <h1 class="names tw-primary">
-    <span class="person-line"><span class="name-en">May Lin</span><span class="name-zh zh">林敏</span></span>
+    <span class="pair"><span class="main zh">林敏</span><span class="sub">May Lin</span></span>
     <span class="amp">&amp;</span>
-    <span class="person-line"><span class="name-en">Harry Apostoleris</span><span class="name-zh zh">哈利</span></span>
+    <span class="pair"><span class="main">Harry Apostoleris</span><span class="sub zh">哈利</span></span>
   </h1>
   <p class="tagline">Are finally getting married!<span class="zh">我們終於要結婚了！</span></p>
 
@@ -259,36 +307,29 @@
       <span class="zh">流程</span>
       <span class="en">Schedule of the Day</span>
     </div>
-    <div class="event-caption">
-      ChiaoHsi, Yilan, Taiwan · Saturday, July 24, 2027
-      <span class="zh">台灣宜蘭礁溪・2027年7月24日（星期六）</span>
-      <span class="event-note">Welcome Dinner the night before, Friday July 23<span class="zh"> ・ 接風casual晚餐：7月23日（星期五）</span></span>
-    </div>
-
     <div class="timeline">
       <div class="t-item">
         <div class="t-time">Fri, Jul 23 · 8:00 PM</div>
         <div class="t-label-row"><span class="t-label">Welcome Dinner</span><span class="t-zh zh">接風casual晚餐</span></div>
-        <div class="t-venue">Venue TBD, ChiaoHsi — we'll confirm and update this closer to the date<span class="zh" style="display:block;margin-top:2px;">場地未定，確定後另行通知</span></div>
+        <div class="t-venue">Venue TBD, ChiaoHsi<span style="display:block;margin-top:2px;">We'll confirm and update this closer to the date</span><span class="zh" style="display:block;margin-top:2px;">場地未定，確定後另行通知</span></div>
       </div>
       <div class="t-item">
         <div class="t-time">Sat, Jul 24 · 4:30 PM</div>
         <div class="t-label-row"><span class="t-label">Cocktail Party</span><span class="t-zh zh">雞尾酒會</span></div>
-        <div class="t-venue">Royal Hotel ChiaoHsi 礁溪老爺酒店</div>
+        <div class="t-venue">Royal Hotel ChiaoHsi <span class="nb">礁溪老爺酒店</span></div>
         <div class="t-note">A Taiwanese tradition — will Harry and his crew pass the challenges?</div>
         <div class="t-note">Drinks and light snacks will be served throughout the cocktail hour — come hungry!</div>
         <div class="t-note zh zh-start">哈利闖天關 - 新娘本人什麽傳統儀式都不想跑 但闖關這個必需！！！(請點播花木蘭 - 男子漢 謝謝）</div>
-        <div class="t-note zh">雞尾酒會全程供應飲品與輕食小點——記得空著肚子來！</div>
-      </div>
+        <div class="t-note zh">雞尾酒會全程供應專屬調酒/無酒精特調與輕食小點——記得一定要來喝一杯！</div>      </div>
       <div class="t-item">
         <div class="t-time">Sat, Jul 24 · 6:30 PM</div>
         <div class="t-label-row"><span class="t-label">Banquet</span><span class="t-zh zh">喜宴</span></div>
-        <div class="t-venue">Royal Hotel ChiaoHsi 礁溪老爺酒店</div>
+        <div class="t-venue">Royal Hotel ChiaoHsi <span class="nb">礁溪老爺酒店</span></div>
       </div>
       <div class="t-item">
         <div class="t-time">Sat, Jul 24 · 9:30 – 11:30 PM</div>
         <div class="t-label-row"><span class="t-label">After Party</span><span class="t-zh zh">續攤</span></div>
-        <div class="t-venue">Chaliao, Royal Hotel ChiaoHsi 茶寮－礁溪老爺酒店</div>
+        <div class="t-venue">Chaliao, Royal Hotel ChiaoHsi<span class="zh nb" style="display:block;margin-top:2px;">茶寮－礁溪老爺酒店</span></div>
         <div class="t-note">A relaxed nightcap to close out the day — light snacks, drinks, and good conversation. We'd love for as many of you as possible to stay and join us.<span class="zh">婚宴的時候忙著吃飯，可能沒有辦法跟大家好好聊天。我們在晚宴後還備有輕食以及酒水，大家可以一邊喝一邊聊天，一起好好放鬆 -- 聊一個我如何變成劉宇寧得不到的女人的心路歷程，還有說不完的沙漠荒謬故事⋯⋯</span></div>
       </div>
     </div>
@@ -310,12 +351,11 @@
       <span class="en">RSVP</span>
     </div>
     <div class="rsvp-cta">
-      <p class="rsvp-copy">Please let us know if you can join us by <strong>November&nbsp;29,&nbsp;2026</strong>.</p>
+      <p class="rsvp-copy">Please let us know if you can join us by<br><strong>November 29, 2026</strong>.</p>
       <p class="rsvp-deadline rsvp-en-last">It's Harry's birthday wish that everyone RSVP by then!<br><span style="white-space:nowrap;">May: DON'T MAKE ME CALL YOU.</span></p>
-      <p class="rsvp-copy zh">請於2026年11月29日前讓我們知道您是否能出席。</p>
+      <p class="rsvp-copy zh">請於<strong>2026年11月29日</strong>前讓我們知道您是否能出席。</p>
       <p class="rsvp-deadline zh rsvp-zh-last">請大家完成哈利的生日願望準時回覆，不要逼我打電話騷擾你！</p>
       <a class="rsvp-btn" href="https://tally.so/r/Y5NL76" target="_blank" rel="noopener">RSVP Now<span class="zh">立即回覆</span></a>
-      <p class="rsvp-note">You'll be asked your party size, meal preference, and whether you'll join the Welcome Dinner and After Party too.<span class="zh">表單將詢問您的出席人數、餐點偏好，以及是否參加接風casual晚餐與續攤。</span></p>
     </div>
   </div>
 </section>
@@ -345,34 +385,61 @@
       <span class="en">Venue &amp; Getting There</span>
     </div>
 
+    <div class="lang-toggle" role="group" aria-label="Language / 語言">
+      <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">English</button>
+      <button type="button" class="lang-btn" data-lang="zh" aria-pressed="false">中文</button>
+    </div>
+
     <div class="venue-card">
-      <h3>Royal Hotel ChiaoHsi</h3>
-      <span class="venue-zh">礁溪老爺酒店・宜蘭縣礁溪鄉五峰路69號</span>
-      <p class="venue-blurb">The hotel is close to the famous Wufengqi Waterfall (五峰旗瀑布) and the Matcha Mountain hiking trail (抹茶山步道).</p>
-      <a class="map-link" href="https://maps.app.goo.gl/PWFtsPm8LWmNCXAz8" target="_blank" rel="noopener">Open in Google Maps ↗</a>
-      <span class="directions-label">GETTING THERE<span class="zh">交通方式</span></span>
-      <p class="venue-note" style="margin-top:0;margin-bottom:18px;">Arriving at Taoyuan International Airport? Take the Airport MRT to Taipei Main Station first.<span class="zh" style="display:block;margin-top:4px;">若您從桃園國際機場抵達，請先搭乘機場捷運至台北車站。</span></p>
-      <ul class="directions-list">
-        <li>
-          <strong>By bus</strong> Direct coaches run from Taipei to the ChiaoHsi (Jiaoxi) Transfer Station in about 50–70 minutes.
-          <br>• <strong>Kamalan Bus 1915</strong> — departs from Taipei Bus Station, a short walk from Taipei Main Station.
-          <br>• <strong>Capital Bus 1572</strong> — departs from City Hall Metro Station, Exit 2 (Blue Line to City Hall).
-          <br>From the ChiaoHsi (Jiaoxi) Transfer Station, it's a short taxi ride to the hotel — or a 10-minute walk to ChiaoHsi (Jiaoxi) Train Station to catch the hotel's free shuttle (<a href="https://imagedelivery.net/a6-OYZSpZSiOriMeuFHR3w/b2c11a7f-72d3-4ad5-c9b9-16fe82e3e400/public" target="_blank" rel="noopener">see shuttle schedule</a>).
-          <span class="zh" style="display:block;margin-top:4px;">直達客運從台北出發，約50–70分鐘可抵達礁溪轉運站。
-          <br>• <strong>葛瑪蘭客運1915</strong>——於台北轉運站發車，從台北車站步行即可抵達。
-          <br>• <strong>首都客運1572</strong>——於市政府捷運站2號出口發車（搭乘捷運藍線至市政府站）。
-          <br>抵達礁溪轉運站後，可搭乘計程車快速抵達飯店，或步行約10分鐘至礁溪火車站搭乘飯店免費接駁車（<a href="https://imagedelivery.net/a6-OYZSpZSiOriMeuFHR3w/b2c11a7f-72d3-4ad5-c9b9-16fe82e3e400/public" target="_blank" rel="noopener">查看接駁時刻表</a>）。</span>
-        </li>
-        <li>
-          <strong>By train</strong> Take the train to ChiaoHsi (Jiaoxi) Station — the hotel runs a free shuttle for guests (<a href="https://imagedelivery.net/a6-OYZSpZSiOriMeuFHR3w/b2c11a7f-72d3-4ad5-c9b9-16fe82e3e400/public" target="_blank" rel="noopener">see shuttle schedule</a>) or it's a quick taxi ride.
-          <span class="zh" style="display:block;margin-top:4px;">搭乘火車至礁溪火車站（<a href="https://imagedelivery.net/a6-OYZSpZSiOriMeuFHR3w/b2c11a7f-72d3-4ad5-c9b9-16fe82e3e400/public" target="_blank" rel="noopener">查看接駁時刻表</a>），或可搭乘計程車前往。</span>
-        </li>
-        <li>
-          <strong>By car / taxi</strong> From Taipei or Taoyuan International Airport, take National Freeway 5 through the Xueshan Tunnel, exit at Toucheng, then follow Provincial Highway 9 toward ChiaoHsi / Wufengqi Scenic Area — about 5 minutes further to the hotel.
-          <span class="zh" style="display:block;margin-top:4px;">從台北或桃園國際機場出發，經國道五號通過雪山隧道，於頭城交流道下交流道，接台九線往礁溪／五峰旗風景區方向，再約5分鐘即可抵達飯店。</span>
-        </li>
-      </ul>
-      <p class="venue-note">Welcome Dinner venue is still being finalized — we'll share the address and directions here once it's confirmed.<span class="zh" style="display:block;margin-top:4px;">接風casual晚餐地點尚未確定，確認後將更新於此。</span></p>
+
+      <!-- ENGLISH -->
+      <div class="lang-panel" data-lang="en">
+        <h3>Royal Hotel ChiaoHsi</h3>
+        <span class="venue-zh">No. 69, Wufeng Rd., Dazhong Village, Jiaoxi Township, Yilan County 262, Taiwan</span>
+        <p class="venue-blurb">The hotel is close to the famous Wufengqi Waterfall (五峰旗瀑布) and the Matcha Mountain hiking trail (抹茶山步道).</p>
+        <a class="map-link" href="https://maps.app.goo.gl/PWFtsPm8LWmNCXAz8" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+        <span class="directions-label">GETTING THERE</span>
+        <p class="venue-note" style="margin-top:0;margin-bottom:18px;">Arriving at Taoyuan International Airport? Take the Airport MRT to Taipei Main Station first.</p>
+        <ul class="directions-list">
+          <li>
+            <strong>By bus</strong> Direct coaches run from Taipei to the ChiaoHsi (Jiaoxi) Transfer Station in about 50–70 minutes.
+            <br>• <strong>Kamalan Bus 1915</strong> — departs from Taipei Bus Station, a short walk from Taipei Main Station.
+            <br>• <strong>Capital Bus 1572</strong> — departs from City Hall Metro Station, Exit 2 (Blue Line to City Hall).
+            <br>From the ChiaoHsi (Jiaoxi) Transfer Station, it's a short taxi ride to the hotel — or a 10-minute walk to ChiaoHsi (Jiaoxi) Train Station to catch the hotel's free shuttle (<a href="https://imagedelivery.net/a6-OYZSpZSiOriMeuFHR3w/b2c11a7f-72d3-4ad5-c9b9-16fe82e3e400/public" target="_blank" rel="noopener">see shuttle schedule</a>).
+          </li>
+          <li>
+            <strong>By train</strong> Take the train to ChiaoHsi (Jiaoxi) Station — the hotel runs a free shuttle for guests (<a href="https://imagedelivery.net/a6-OYZSpZSiOriMeuFHR3w/b2c11a7f-72d3-4ad5-c9b9-16fe82e3e400/public" target="_blank" rel="noopener">see shuttle schedule</a>) or it's a quick taxi ride.
+          </li>
+          <li>
+            <strong>By car / taxi</strong> From Taipei or Taoyuan International Airport, take National Freeway 5 through the Xueshan Tunnel, exit at Toucheng, then follow Provincial Highway 9 toward ChiaoHsi / Wufengqi Scenic Area — about 5 minutes further to the hotel.
+          </li>
+        </ul>
+        <p class="venue-note">Welcome Dinner venue is still being finalized — we'll share the address and directions here once it's confirmed.</p>
+      </div>
+
+      <!-- 中文 -->
+      <div class="lang-panel" data-lang="zh" hidden>
+        <h3>礁溪老爺酒店</h3>
+        <span class="venue-zh">宜蘭縣礁溪鄉五峰路69號</span>
+        <a class="map-link" href="https://maps.app.goo.gl/PWFtsPm8LWmNCXAz8" target="_blank" rel="noopener">在 Google 地圖開啟 ↗</a>
+        <span class="directions-label">交通方式</span>
+        <ul class="directions-list">
+          <li>
+            <strong>搭客運</strong> 直達客運從台北出發，約50–70分鐘可抵達礁溪轉運站。
+            <br>• <strong>葛瑪蘭客運1915</strong>——於台北轉運站發車，從台北車站步行即可抵達。
+            <br>• <strong>首都客運1572</strong>——於市政府捷運站2號出口發車（搭乘捷運藍線至市政府站）。
+            <br>抵達礁溪轉運站後，可搭乘計程車快速抵達飯店，或步行約10分鐘至礁溪火車站搭乘飯店免費接駁車（<a href="https://imagedelivery.net/a6-OYZSpZSiOriMeuFHR3w/b2c11a7f-72d3-4ad5-c9b9-16fe82e3e400/public" target="_blank" rel="noopener">查看接駁時刻表</a>）。
+          </li>
+          <li>
+            <strong>搭火車</strong> 搭乘火車至礁溪火車站，飯店提供免費接駁車（<a href="https://imagedelivery.net/a6-OYZSpZSiOriMeuFHR3w/b2c11a7f-72d3-4ad5-c9b9-16fe82e3e400/public" target="_blank" rel="noopener">查看接駁時刻表</a>），或搭乘計程車前往飯店。
+          </li>
+          <li>
+            <strong>開車／計程車</strong> 從台北或桃園國際機場出發，經國道五號通過雪山隧道，於頭城交流道下交流道，接台九線往礁溪／五峰旗風景區方向，再約5分鐘即可抵達飯店。
+          </li>
+        </ul>
+        <p class="venue-note">接風casual晚餐地點尚未確定，確認後將更新於此。</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -414,6 +481,21 @@ function renderGiftGrid(){
   `).join('');
 }
 renderGiftGrid();
+
+// ---------------- Getting There language toggle ----------------
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.lang;
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      const on = b.dataset.lang === lang;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    document.querySelectorAll('.lang-panel').forEach(p => {
+      p.hidden = p.dataset.lang !== lang;
+    });
+  });
+});
 
 function escapeHtml(str){
   const div = document.createElement('div');
